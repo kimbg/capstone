@@ -14,16 +14,12 @@
 </head>
 <body>
 
-    <h1> <%=user.name%> </h1>
-    <ul>
-        <%cats.forEach((items) => { %>
-            <li><%= items.title %></li>
-            <li><%= items.comment%></li>
-        <%})%>
-    </ul>    
-    <li><%=data123%></li>
 
-    <%- include('body') %>
-    <%- include('footer') %>
+    
+    <form method ="post" action = "/login/local">
+        <input type = "text"  name = "id" placeholder="아이디">
+        <input type = "password" name = "pw" placeholder="비밀번호">
+        <input type = "submit" text= "제출">
+    </form>
 </body>
 </html>
