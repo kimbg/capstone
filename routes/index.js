@@ -17,9 +17,13 @@ let data = [
 
 router.use('/login',loginRouter);
 
-// router.get('/success',(req,res) => {
-//     res.render('/mainPage');
-// })
+router.get('/register',(req,res) => {
+    res.render('register');
+})
+
+router.get('/success',(req,res) => {
+    res.render('mainPage');
+})
 
 router.get('/fail',(req,res) => {
     res.render('failPage');
