@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const loginRouter = require('./login');
+const upload = require('../app');
+
 
 
 let user = {
@@ -28,6 +30,20 @@ router.get('/success',(req,res) => {
 router.get('/fail',(req,res) => {
     res.render('failPage');
 })
+
+// multer는 모듈화가 안되는듯하다..
+router.post('/multer',upload.single('singleImage'),(req,res) => {
+    console.log("receive image?");
+    console.log(req.body);
+    console.log(req.file);
+})
+
+
+router.get('/multer',(req,res) => {
+    res.render('multerTest');
+})
+
+
 
 router.get('/',(req,res) => {
     res.render('test',{user : user,cats : data});    

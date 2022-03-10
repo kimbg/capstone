@@ -13,15 +13,24 @@ const indexRouter = require('./routes/index');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:false }));
 
+// multer
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination : (req,file,cb) => cb(null,'./images'),
+    filename    : (req,file,cb) => cb(null,file.originalname)
+})
+
+const upload = multer({storage : storage})
+
+
 
 // 정적 파일 제공
-app.use('/static',express.static(__dirname + '/public'));
-app.use('/html',express.static(__dirname + '/views'));
+app.use('/static',express.static(path.join(__dirname,'/public')));
+app.use('/html',express.static(path.join(__dirname,'/views')));
 
 // engine(ejs) setting
 app.set('views',path.join(__dirname,'/views/templates'));
 app.set('view engine','ejs');
-
 
 
 
@@ -35,3 +44,5 @@ app.use('/',indexRouter);
 app.listen(port,() => {
     console.log(`app is listening on ${port}`);
 })
+
+module.exports = upload;

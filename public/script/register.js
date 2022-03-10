@@ -15,21 +15,17 @@ let submitFunction = () => {
         url : '/login/register',
         type : 'post',
         data : { 
-            id : id_value,
-            pw : pw_value,
+            id  : id_value,
+            pw  : pw_value,
             age : age_value,
         }
     })
 
     .done((result) => {
-        if(result === "already that id has exists")
-        {
-            alert(result);
-        }
-        else if(result === "you register successfully!")
-        {
-            window.location.href = "/success";
-        }
+        if(result === "already that id has exists")        
+            alert(result);        
+        else if(result === "you register successfully!")        
+            window.location.href = "/success";        
     })
 
 }
