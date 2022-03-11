@@ -1,8 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const loginRouter = require('./login');
-const upload = require('../app');
 
+// multer
+// const multer = require('multer');
+// const storage = multer.diskStorage({
+//     destination : (req,file,cb) => cb(null,'../images'),
+//     filename    : (req,file,cb) => cb(null,file.originalname)
+// })
+
+// const upload = multer({storage : storage})
 
 
 let user = {
@@ -32,9 +39,8 @@ router.get('/fail',(req,res) => {
 })
 
 // multer는 모듈화가 안되는듯하다..
-router.post('/multer',upload.single('singleImage'),(req,res) => {
-    console.log("receive image?");
-    console.log(req.body);
+router.post('/multer',(req,res) => {
+    console.log("receive image");
     console.log(req.file);
 })
 
