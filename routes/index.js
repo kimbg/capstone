@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const loginRouter = require('./login');
+const dbModel = require('../model/modelTest.js');
 
 // multer
 // const multer = require('multer');
@@ -52,6 +53,11 @@ router.get('/multer',(req,res) => {
 
 
 router.get('/',(req,res) => {
+
+    console.log(dbModel.selectFnc1("select * from user"));
+    console.log("------");
+    console.log(dbModel.sayHelloFnc("bk"));
+
     res.render('test',{user : user,cats : data});    
 })
 
