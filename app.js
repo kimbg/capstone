@@ -24,9 +24,9 @@ app.use(bodyParser.urlencoded({ extended:false }));
 
 
 
-// // multer 얘는 동작한다
-// const multer = require('multer');
-// app.use(multer({dest : `./images`}).single('singleImage'));
+// multer 얘는 동작한다
+const multer = require('multer');
+app.use(multer({dest : `./images`}).single('singleImage'));
 
 
 // multer 얘 동작안함

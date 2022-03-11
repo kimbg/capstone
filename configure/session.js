@@ -16,7 +16,7 @@ const sessionStore = new MySQLStore(mysqlStoreOption,mysql_pool)
 
 // sessionOption
 const sessionOption = {
-    secret              : process.env.session_secret,
+    secret              : 'session_secret',
     resave              : false,
     saveUninitialized   : false,    
     store               : sessionStore,
