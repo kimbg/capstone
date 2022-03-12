@@ -3,15 +3,6 @@ const router = express.Router();
 const loginRouter = require('./login');
 const dbModel = require('../model/modelTest.js');
 
-// multer
-// const multer = require('multer');
-// const storage = multer.diskStorage({
-//     destination : (req,file,cb) => cb(null,'../images'),
-//     filename    : (req,file,cb) => cb(null,file.originalname)
-// })
-
-// const upload = multer({storage : storage})
-
 
 let user = {
     name : "bk",
