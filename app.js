@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({ extended:false }));
 
 // multer 
 const multer = require('multer');
-app.use(multer({dest : `./images`}).single('singleImage'));
 
 
 // 정적 파일 제공
+app.use(multer({dest : `./images`}).single('singleImage'));
 app.use('/static',express.static(path.join(__dirname,'/public')));
 app.use('/html',express.static(path.join(__dirname,'/views')));
 
